@@ -5,20 +5,20 @@ SOURCES=$(shell find src/ -name "*.idr")
 
 all: build/$(EXE)
 
-run: test.bmp
-example: test.bmp
+run: example.bmp
+example: example.bmp
 
 install: $(SOURCES)
 	idris --install $(IPKG)
 
-test.bmp: build/$(EXE)
-	./build/$(EXE) > test.bmp
+example.bmp: build/$(EXE)
+	./build/$(EXE) > example.bmp
 
 repl:
 	EDITOR=vim idris --repl $(IPKG)
 
 build/$(EXE): $(SOURCES) | build/
-	idris --build $(IPKG) && mv $(EXE) build/
+	idris --build example.ipkg && mv $(EXE) build/
 
 build/:
 	mkdir -p build/
@@ -34,9 +34,10 @@ doc: $(SOURCES)
 
 clean:
 	idris --clean $(IPKG)
+	idris --clean example.ipkg
 	rm -rf $(PACKAGE)_doc/
 	rm -f `find src/ -name *.ibc`
-	rm -f test.bmp
+	rm -f example.bmp
 
 cleanall: clean
 	rm -rf build/

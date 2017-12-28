@@ -1,0 +1,11 @@
+package simple-bmp-example
+
+version = "0.1.0"
+
+opts = "-p contrib"
+sourcedir = src
+
+-- modules = SimpleBmp
+
+executable = "simple-bmp-example"
+main = Example

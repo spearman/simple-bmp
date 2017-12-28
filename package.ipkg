@@ -7,6 +7,4 @@ sourcedir = src
 
 modules = SimpleBmp
 
-executable = "simple-bmp-example"
-main = Example
 tests = SimpleBmp.test
